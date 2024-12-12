@@ -1,0 +1,35 @@
+{
+  "general": {
+    "page_title": "Portafolio Ángel Chávez",
+    "language": "idioma",
+    "page_description": "Más de 7 años de experiencia en desarrollo web. Angel Chávez, diseñador UI/UX y Practicante de AWS Cloud certificado. Construyamos juntos tu próximo proyecto."
+  },
+  "intro": {
+    "welcome_h1": "Hola! soy Ángel Chávez",
+    "available_for_hiring": "Disponible para contrataciones",
+    "about_me_1": "+7 años de experiencia. Ingeniero de software, certificado como",
+    "about_me_certifications": "diseñador UI/UX y como AWS Cloud Practitioner.",
+    "about_me_2": "Especializandome a diario en resolver problemas a traves de la programación y crear aplicaciones únicas.",
+    "about_me_location": "Actualmente en Caracas, Venezuela 🇻🇪. ",
+    "about_me_personal": "Mis próximos objetivos profesionales son obtener el certificado de developer associate de aws y nutrir mi portafolio con múltiples tecnologías. Tambien me gusta boxear y entrenar a mi puppy lana🐶."
+  },
+  "experience": {
+    "title": "Últimas experiencias laborales",
+    "see_more_check_cv": "¿Quieres ver más? Chequea mi CV aqui"
+  },
+  "projects": {
+    "title": "Proyectos realizados",
+    "disclaimer": "Con una pasión inquebrantable por la tecnología, he dedicado mi carrera a crear soluciones innovadoras principalmente en el contexto empresarial. Mi nuevo portafolio refleja esta evolución pero aplicado a mi nueva imágen de marca, combinando mi experiencia con las últimas tendencias del desarrollo web. Estoy emocionado por aplicar mis conocimientos para diseñar productos que sean tanto funcionales como estéticamente atractivos.",
+    "disclaimer_2": "es por eso que ",
+    "disclaimer_under_construction": "esta sección aun está en construcción",
+    "disclaimer_3": ", para poder demostrar mi talento a través de soluciones más impactantes, más eficientes y proyectos que sean simplemente... mejores.",
+    "see_more": "Ver más ➜"
+  },
+  "header_footer": {
+    "about_me": "Sobre mí",
+    "experience": "Experiencia",
+    "projects": "Proyectos",
+    "portfolio": "Portafolio digital"
+  }
+}
+  

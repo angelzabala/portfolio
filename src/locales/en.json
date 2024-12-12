@@ -1,0 +1,35 @@
+{
+  "general": {
+    "page_title": "Portfolio Ángel Chávez",
+    "language": "language",
+    "page_description": "7+ years of web development expertise. Angel Chavez, a certified UI/UX designer and AWS Cloud Practitioner. Let's build your next project together."
+  },
+  "intro": {
+    "welcome_h1": "Welcome! I am Ángel Chávez",
+    "available_for_hiring": "Available for hire",
+    "about_me_1": "+7 years of experience. Software engineer, certified as",
+    "about_me_certifications": "UI/UX designer and as an AWS Cloud Practitioner.",
+    "about_me_2": "Daily, I specialize in solving problems through programming and creating innovative applications.",
+    "about_me_location": "Currently in Caracas, Venezuela 🇻🇪.",
+    "about_me_personal": "My next professional goals are to obtain the AWS Developer Associate certification and to enrich my portfolio with multiple technologies. I also enjoy boxing and training with my dog lana🐶."
+  },
+  "experience": {
+    "title": "Latest work experiences",
+    "see_more_check_cv": "Want to see more? Check my CV here"
+  },
+  "projects": {
+    "title": "Completed Projects",
+    "disclaimer": "With an unwavering passion for technology, I have dedicated my career to creating innovative solutions, primarily within the corporate context. My new portfolio reflects this evolution as it pertains to my new brand identity, combining my experience with the latest web development trends. I am excited to apply my knowledge to design products that are both functional and aesthetically pleasing",
+    "disclaimer_2": "That's why ",
+    "disclaimer_under_construction": "this section is still under construction",
+    "disclaimer_3": ", so I can showcase my talent through more impactful, better-executed, and solutions that are just... way better.",
+    "see_more": "See more ➜"
+  },
+  "header_footer": {
+    "about_me": "About me",
+    "experience": "Experience",
+    "projects": "Projects",
+    "portfolio": "Digital portfolio"
+  }
+}
+  

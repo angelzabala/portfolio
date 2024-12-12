@@ -1,0 +1,68 @@
+---
+import MockUpImage from '../../public/project_mockup.jpg'
+import Image from "astro/components/Image.astro"
+import Tailwind from "./Icons/Tailwind.astro"
+import NextJS from "./Icons/NextJS.astro"
+
+import { getTranslations } from "../utils/i18n"
+
+const t = getTranslations(Astro.currentLocale)
+
+const TAGS = {
+    NEXT: {
+    name: "Next.js",
+    class: "bg-black text-white",
+    icon: NextJS,
+    },
+    TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+    },
+}
+
+const PROJECTS = Astro.currentLocale === 'en' ? [{
+    title: "Requiem for a dream",
+    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    skills: [TAGS.NEXT, TAGS.TAILWIND],
+    image: MockUpImage,
+    link: "https://www.google.com"
+}] : [{
+    title: "Requiem for a dream",
+    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    skills: [TAGS.NEXT, TAGS.TAILWIND],
+    image: MockUpImage,
+    link: "https://www.google.com"
+}]
+
+---
+
+
+{PROJECTS.map((project) => (
+
+    <div class="backdrop-blur-md rounded-md  h-full">
+        <h2 class="text-amber-300/80 font-semibold text-2xl spacing-4 tracking-wide"><a class="hover:underline" href={project.link} target="_blank" rel="noopener">⦿ {project.title}</a></h2>
+        <p class="text-sm text-pretty mt-4">{project.description}</p>
+        <ul class="flex flex-row gap-x-2 flex-wrap my-6">
+          {project.skills.map((tag) => (
+            <li>
+              <span
+                class={`flex gap-x-2 items-center border-white/20 border rounded-full text-xs ${tag.class} py-1 px-2 pr-3 `}
+              >
+                <tag.icon class="size-6" />
+                {tag.name}
+              </span>
+            </li>
+          ))}
+        </ul>
+        <Image src={project.image} alt={project.title} class="h-[400px] w-full rounded-md"/>
+        <div class="flex justify-end mt-4">
+            <a class="hover:underline" href={project.link} target="_blank" rel="noopener">
+                <button type="button" class=" hover:text-white border border-gray-800 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">{t.projects.see_more}</button>
+            </a>
+        </div>
+    
+    </div>
+
+    <hr class="mt-8" />
+))}

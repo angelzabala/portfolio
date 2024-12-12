@@ -1,0 +1,109 @@
+---
+import TimelineItem from "./TimelineItem.astro";
+
+const EXPERIENCE_ITEMS = Astro.currentLocale === 'en' ? [
+  {
+    date: "January 2024 - Present",
+    title: "Freelance (Self-employed)",
+    description: "Freelance work in software development.",
+    link: "#",
+  },
+  {
+    date: "October 2022 - December 2023",
+    title: "Senior Software Engineer at TEAM International",
+    description:
+      "Full stack developer contributing mostly to the front-end, performing code cleanup, implementing standards, design systems, and fostering knowledge sharing to create scalable IoT applications for smart cities.",
+    link: "#",
+  },
+  {
+    date: "March 2021 - October 2022",
+    title: "Web API Developer at TEAM International",
+    description:
+      "Front-end development maintaining 10+ robust and highly scalable projects using Svelte and React, and creating new solutions for smart cities.",
+    link: "#",
+  },
+  {
+    date: "November 2020 - February 2021",
+    title: "Software Engineer at Devsu",
+    description:
+      "Maintained complex systems using C# and Angular 10, working directly with the client representative who also contributed as a developer.",
+    link: "#",
+  },
+  {
+    date: "September 2018 - December 2019",
+    title: "Adjunct Assistant Professor at Universidad Nueva Esparta",
+    description:
+      "Assistant professor teaching Programming II and Programming III in C++. Responsibilities included mentoring, lectures, and consultancies.",
+    link: "#",
+  },
+  // {
+  //   date: "February 2018 - May 2018",
+  //   title: "Developer at LogosCorp",
+  //   description:
+  //     "Developed websites using WordPress, modifying themes and plugins for clients. Worked on projects like ADS (American Development Smiles) and Idaca USA.",
+  //   link: "#",
+  // },
+  // {
+  //   date: "February 2017 - January 2018",
+  //   title: "Junior Web Developer at Dinbog",
+  //   description:
+  //     "Front-end development using AngularJS, HTML, and CSS for dinbog.com, a social network headquartered in Madrid, Spain.",
+  //   link: "#",
+  // },
+  // {
+  //   date: "May 2016 - January 2017",
+  //   title:
+  //     "System Analyst (Web Development and Maintenance) at Universidad Nueva Esparta",
+  //   description:
+  //     "Web development and maintenance of MiUne2.0 using HTML, CSS, JavaScript/jQuery, PHP, and SQL. Collaborated on creating a new inscriptions model.",
+  //   link: "#",
+  // },
+]: [
+  {
+    "date": "Enero 2024 - Presente",
+    "title": "Freelance (Autónomo)",
+    "description": "Trabajo independiente en desarrollo de software.",
+    "link": "#"
+  },
+  {
+    "date": "Octubre 2022 - Diciembre 2023",
+    "title": "Ingeniero de Software Senior en TEAM International",
+    "description": "Desarrollador full stack contribuyendo principalmente al front-end, realizando limpieza de código, implementando estándares, sistemas de diseño y fomentando el intercambio de conocimientos para crear aplicaciones IoT escalables para ciudades inteligentes.",
+    "link": "#"
+  },
+  {
+    "date": "Marzo 2021 - Octubre 2022",
+    "title": "Desarrollador de API Web en TEAM International",
+    "description": "Desarrollo front-end manteniendo más de 10 proyectos robustos y altamente escalables utilizando Svelte y React, y creando nuevas soluciones para ciudades inteligentes.",
+    "link": "#"
+  },
+  {
+    "date": "Noviembre 2020 - Febrero 2021",
+    "title": "Ingeniero de Software en Devsu",
+    "description": "Mantuve sistemas complejos usando C# y Angular 10, trabajando directamente con el representante del cliente, quien también contribuyó como desarrollador.",
+    "link": "#"
+  },
+  {
+    "date": "Septiembre 2018 - Diciembre 2019",
+    "title": "Profesor Adjunto en la Universidad Nueva Esparta",
+    "description": "Profesor asistente de Programación II y Programación III en C++. Las responsabilidades incluían tutorías, conferencias y consultorías.",
+    "link": "#"
+  }
+];
+---
+
+<ol class="relative border-s border-amber-300/50 ">
+  {
+    EXPERIENCE_ITEMS.map((experience, index) => (
+      <li class="mb-10 ms-4 timeline">
+        <TimelineItem
+          index={index}
+          date={experience.date}
+          title={experience.title}
+          description={experience.description}
+          link={experience.link}
+        />
+      </li>
+    ))
+  }
+</ol>

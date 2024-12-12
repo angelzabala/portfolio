@@ -1,0 +1,107 @@
+---
+import Badge from "../../components/Badge.astro";
+import Github from "../../components/Icons/Github.astro";
+import Linkedin from "../../components/Icons/Linkedin.astro";
+import Behance from "../../components/Icons/Behance.astro";
+import Email from "../../components/Icons/Email.astro";
+import SocialPill from "../../components/SocialPill.astro";
+import Layout from "../../layouts/Layout.astro";
+import Timeline from "../../components/Timeline.astro";
+import Suitcase from "../../components/Icons/Suitcase.astro";
+import Bulb from "../../components/Icons/Bulb.astro";
+import Curriculum from "../../components/Icons/Curriculum.astro";
+import ProjectGallery from "../../components/ProjectGallery.astro";
+
+import { getTranslations } from "../../utils/i18n";
+
+const t = getTranslations(Astro.currentLocale);
+
+const CV_ROUTE = `../../src/assets/cv_angel_chavez_${Astro.currentLocale}.pdf`;
+---
+
+<Layout>
+  <main>
+    <section id="intro" class="pt-24 md:pt-16">
+      <h1 class="font-bold text-4xl flex md:flex-row flex-col items-center gap-4 mb-4 mt-8">
+        {t.intro.welcome_h1}
+        <a
+          class="h-full flex items-center"
+          target="blank"
+          rel="noopener"
+          href="https://www.linkedin.com/in/angelzabaladev/"
+          ><Badge>{t.intro.available_for_hiring}</Badge></a
+        >
+      </h1>
+
+      <h2 class="text-pretty">
+        {t.intro.about_me_1}
+        <span class="text-amber-300/80">{t.intro.about_me_certifications}</span>
+        {t.intro.about_me_2}
+        <br />
+        {t.intro.about_me_location}
+      </h2>
+      
+      <p class="mt-4">
+        {t.intro.about_me_personal}
+      </p>
+    </section>
+
+    <section id="social">
+      <nav class="flex flex-wrap gap-x-2 gap-y-3 mt-8">
+        <SocialPill href="https://www.linkedin.com/in/angelzabaladev/">
+          <Linkedin class="w-6 h-6" />
+          LinkedIn
+        </SocialPill>
+        <SocialPill href="https://github.com/angelzabala">
+          <Github class="w-6 h-6" />
+          Github
+        </SocialPill>
+        <SocialPill href="https://www.behance.net/angeldavid3">
+          <Behance class="w-6 h-6" />
+          Behance
+        </SocialPill>
+        <SocialPill href="mailto:angeldchz@gmail.com">
+          <Email class="w-6 h-6" />
+          angeldchz@gmail.com
+        </SocialPill>
+        <SocialPill href={CV_ROUTE}>
+          <Curriculum class="w-6 h-6" />
+          CV
+        </SocialPill>
+      </nav>
+    </section>
+
+    <section id="experience" class="mb-20 pt-[120px] md:pt-24">
+      <h2 class="font-semibold text-3xl flex gap-4 -ml-2 items-center">
+        <Suitcase class="size-8" />{t.experience.title}
+      </h2>
+      <Timeline />
+
+      <div class="my-8 flex justify-center">
+        <a href={CV_ROUTE} target="_blank" rel="noopener">
+          <button
+            type="button"
+            class="text-gray-300 hover:text-white border border-gray-400 transition hover:bg-gray-600 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800"
+            >{t.experience.see_more_check_cv}</button
+          >
+        </a>
+      </div>
+    </section>
+
+    <section id="projects" class="mb-20 pt-[120px] md:pt-24">
+      <h2 class="font-semibold text-3xl flex gap-4 -ml-2 items-center mb-2">
+        <Bulb class="size-8" />{t.projects.title}
+      </h2>
+      <p class="mb-8 text-pretty text-sm md:text-base ">
+          {t.projects.disclaimer}
+          
+          <br />
+          <br>
+          {t.projects.disclaimer_2}
+          <span  class="text-amber-300/80">{t.projects.disclaimer_under_construction}</span>
+          {t.projects.disclaimer_3}
+      </p>
+      <ProjectGallery />
+    </section>
+  </main>
+</Layout>
