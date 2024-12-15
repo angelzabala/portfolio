@@ -1,31 +1,95 @@
 ---
-import { Image } from "astro:assets";
-import Language from "./Icons/Language.astro";
 import AngelProfilePicture from "../../public/angel_profile_avatar.jpeg";
+import Language from "./Icons/Language.astro";
+import Moon from "./Icons/Moon.astro";
+import Sun from "./Icons/Sun.astro";
+
 import { getTranslations } from "../utils/i18n";
+import { Image } from "astro:assets";
 
 const t = getTranslations(Astro.currentLocale);
 ---
 
 <header
-  class="flex md:flex-row flex-col justify-between items-center w-full max-w-[1120px] py-2 mx-auto sticky top-4 z-10 backdrop-blur-md bg-gray-700/20 px-3 rounded-full border border-white/50"
+  class="flex md:flex-row flex-col justify-between items-center text-black dark:text-white w-full max-w-[1120px] py-2 mx-auto sticky top-4 z-10 backdrop-blur-md bg-slate-300/30 dark:bg-gray-700/20 px-3 rounded-full border border-white/50"
 >
-  <Image
-    src={AngelProfilePicture}
-    alt="angel profile pic"
-    loading="eager"
-    class="rounded-full w-12 h-12"
-  />
+  <div class="flex md:block gap-4 items-center">
+    <Image
+      src={AngelProfilePicture}
+      alt="angel profile pic"
+      loading="eager"
+      class="rounded-full w-12 h-12"
+    />
 
-  <nav class="flex flex-row  gap-4 md:gap-8">
-    <a class="md:opacity-60 md:hover:opacity-100 text-sm md:text-base" href="#intro">{t.header_footer.about_me}</a>
-    <a class="md:opacity-60 md:hover:opacity-100 text-sm md:text-base" href="#experience">{t.header_footer.experience}</a>
-    <a class="md:opacity-60 md:hover:opacity-100 text-sm md:text-base" href="#projects">{t.header_footer.projects}</a>
+    <button id="theme-toggle-responsive" class="block sm:hidden ">
+      <Moon class="size-7 block dark:hidden" />
+      <Sun class="size-7 dark:block hidden" />
+    </button>
 
-    <div class="absolute top-[120px] right-4 md:relative md:top-0 md:right-0">
+    <div class="block sm:hidden right-4 md:relative mt-[2px] md:top-0 md:right-0">
+      <input type="checkbox" id="sortbox-responsive" class="hidden absolute" />
+      <label for="sortbox-responsive" class="flex items-center space-x-1 cursor-pointer">
+        <span class="text-lg"
+          ><Language /><span class="text-[0px] absolute pointer-events-none"
+            >{t.general.language}</span
+          ></span
+        >
+        <svg
+          class="h-4 w-4"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </label>
+
+      <div
+        id="sortbox-responsive-menu"
+        class="absolute mt-1 pointer-events-none min-w-max shadow rounded opacity-0 bg-white border border-white transition delay-75 ease-in-out z-10"
+      >
+        <ul class="block text-right text-gray-900">
+          <li><a href="/" class="block px-3 py-2 hover:bg-gray-300">EN</a></li>
+          <li>
+            <a href="/es" class="block px-3 py-2 hover:bg-gray-300">ES</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <nav class="flex flex-row items-center gap-4 md:gap-8 mt-1">
+    <a
+      class="md:opacity-60 md:hover:opacity-100 text-sm md:text-base"
+      href="#intro">{t.header_footer.about_me}</a
+    >
+    <a
+      class="md:opacity-60 md:hover:opacity-100 text-sm md:text-base"
+      href="#experience">{t.header_footer.experience}</a
+    >
+    <a
+      class="md:opacity-60 md:hover:opacity-100 text-sm md:text-base"
+      href="#projects">{t.header_footer.projects}</a
+    >
+
+    <button id="theme-toggle" class="hidden sm:block">
+      <Moon class="size-6 block dark:hidden" />
+      <Sun class="size-6 dark:block hidden" />
+    </button>
+
+    <div class="right-4 md:relative hidden sm:block">
       <input type="checkbox" id="sortbox" class="hidden absolute" />
       <label for="sortbox" class="flex items-center space-x-1 cursor-pointer">
-        <span class="text-lg"><Language /><span class="text-[0px] absolute pointer-events-none">{t.general.language}</span></span>
+        <span class="text-lg"
+          ><Language /><span class="text-[0px] absolute pointer-events-none"
+            >{t.general.language}</span
+          ></span
+        >
         <svg
           class="h-4 w-4"
           xmlns="http://www.w3.org/2000/svg"
@@ -43,7 +107,7 @@ const t = getTranslations(Astro.currentLocale);
 
       <div
         id="sortboxmenu"
-        class="absolute mt-1 right-1 top-full pointer-events-none min-w-max shadow rounded opacity-0 bg-white border border-white transition delay-75 ease-in-out z-10"
+        class="absolute mt-1 top-full pointer-events-none min-w-max shadow rounded opacity-0 bg-white border border-white transition delay-75 ease-in-out z-10"
       >
         <ul class="block text-right text-gray-900">
           <li><a href="/" class="block px-3 py-2 hover:bg-gray-300">EN</a></li>
@@ -56,7 +120,8 @@ const t = getTranslations(Astro.currentLocale);
   </nav>
 
   <style>
-    #sortbox:checked ~ #sortboxmenu {
+    #sortbox:checked ~ #sortboxmenu,
+    #sortbox-responsive:checked ~ #sortbox-responsive-menu {
       opacity: 1;
       pointer-events: unset;
     }

@@ -18,34 +18,74 @@ const t = getTranslations(Astro.currentLocale);
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={t.general.page_description}>
+    <meta name="description" content={t.general.page_description} />
     <title>{t.general.page_title}</title>
+
+    <script>
+      const theme = (() => {
+        if (
+          typeof localStorage !== "undefined" &&
+          localStorage.getItem("theme")
+        ) {
+          return localStorage.getItem("theme") ?? "light";
+        }
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          return "dark";
+        }
+        return "light";
+      })();
+
+      if (theme === "light") {
+        document.documentElement.classList.remove("dark");
+      } else {
+        document.documentElement.classList.add("dark");
+      }
+
+      window.localStorage.setItem("theme", theme);
+
+      const handleToggleClick = () => {
+        const element = document.documentElement;
+        element.classList.toggle("dark");
+
+        const isDark = element.classList.contains("dark");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+      };
+
+      document
+        .getElementById("theme-toggle")
+        ?.addEventListener("click", handleToggleClick);
+
+        document
+        .getElementById("theme-toggle-responsive")
+        ?.addEventListener("click", handleToggleClick);
+    </script>
   </head>
 
   <!-- <h1>{translations.welcome}</h1>
   <p>{translations.description}</p> -->
-  <div class="relative h-[100vh] w-full bg-slate-950" >
+  <div class="relative h-[100vh] w-full bg-slate-300 dark:bg-slate-950">
     <div
-      class="absolute main-content-container bottom-0 left-0 right-0 top-0 px-8 bg-[radial-gradient(circle_890px_at_50%_200px,#001d32,#000)] overflow-auto"
-
+      class="absolute main-content-container bottom-0 left-0 right-0 top-0 px-8 bg-[radial-gradient(circle_500px_at_50%_300px,#e3e6f8,#ffffff)] dark:bg-[radial-gradient(circle_890px_at_50%_200px,#001d32,#000)] overflow-auto"
     >
-      <body class="w-full max-w-[1120px] px-8" >
+      <body class="w-full max-w-[1120px] px-8">
         <Header />
 
-        <div class="w-full mx-auto max-w-[820px]">
+        <div class="w-full mx-auto max-w-[820px] text-black dark:text-white">
           <slot />
         </div>
 
-		<Footer />
+        <Footer />
       </body>
     </div>
 
     <style>
       :root {
         color-scheme: light dark;
-	}
-	.main-content-container {scroll-behavior: smooth;}
-	html {
+      }
+      .main-content-container {
+        scroll-behavior: smooth;
+      }
+      html {
         font-family: "onest variable", system-ui, sans-serif;
       }
       body {
@@ -55,11 +95,12 @@ const t = getTranslations(Astro.currentLocale);
         min-height: 100vh;
       }
 
-	  @media (prefers-reduced-motion: reduce){
-		html{
-			scroll-behavior: auto;
-		}
-	  }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
     </style>
   </div>
+
 </html>
