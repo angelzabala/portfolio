@@ -12,11 +12,12 @@ import Bulb from "../../components/Icons/Bulb.astro";
 import Curriculum from "../../components/Icons/Curriculum.astro";
 import ProjectGallery from "../../components/ProjectGallery.astro";
 
+import CV_es from "../../../public/cv_angel_chavez_es.pdf"
+import CV_en from "../../../public/cv_angel_chavez_en.pdf"
+
 import { getTranslations } from "../../utils/i18n";
 
 const t = getTranslations(Astro.currentLocale);
-
-const CV_ROUTE = `cv_angel_chavez_${Astro.currentLocale}.pdf`;
 ---
 
 <Layout>
@@ -69,7 +70,7 @@ const CV_ROUTE = `cv_angel_chavez_${Astro.currentLocale}.pdf`;
           <Email class="w-6 h-6" />
           angeldchz@gmail.com
         </SocialPill>
-        <SocialPill href={CV_ROUTE}>
+        <SocialPill href={Astro.currentLocale === 'es' ? CV_es : CV_en}>
           <Curriculum class="w-6 h-6" />
           CV
         </SocialPill>
@@ -83,7 +84,7 @@ const CV_ROUTE = `cv_angel_chavez_${Astro.currentLocale}.pdf`;
       <Timeline />
 
       <div class="my-8 flex justify-center">
-        <a href={CV_ROUTE} target="_blank" rel="noopener">
+        <a href={Astro.currentLocale === 'es' ? CV_es : CV_en} target="_blank" rel="noopener">
           <button
             type="button"
             class="text-gray-800 hover:text-white border border-gray-800 transition 
